@@ -16,6 +16,7 @@ This Python script finds out if a given sequence is a DNA or RNA, then looks for
 ## Usage
 
 python seqClass.py -s ATCGATCG
+
 Output : The sequence is DNA
 
 ## Notes
