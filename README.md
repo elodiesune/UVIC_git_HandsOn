@@ -10,6 +10,7 @@ This Python script finds out if a given sequence is a DNA or RNA, then looks for
 ## Arguments
 
 -s, --seq: Input sequence (required)
+
 -m, --motif: Motif to search for within the sequence (optional)
 
 ## Usage
