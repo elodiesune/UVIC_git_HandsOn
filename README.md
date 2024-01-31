@@ -1,4 +1,4 @@
-#### Sequence / Motif finder !
+# Sequence / Motif finder !
 
 This Python script finds out if a given sequence is a DNA or RNA, then looks for motifs within the sequence.
 
