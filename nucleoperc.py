@@ -37,10 +37,9 @@ for letter in args.seq:
 	else:
 		counts[letter] = 1
 
-if "U" in args.seq:
-	print('The sequence is RNA')
-else:
-	print('The sequence is DNA')
+# Print the type of sequence
+print('The sequence is DNA' if "T" in args.seq else 'The sequence is RNA' if "U" in args.seq else 'The sequence is DNA or RNA')
 
+# Print the counts of nucleotides
 for letter, count in counts.items():
 	print(f"%{letter}: {count / sequence_length * 100:.2f}%")
