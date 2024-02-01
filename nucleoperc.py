@@ -11,6 +11,7 @@ if len(sys.argv) == 1:
 
 # Set args as the output of the parser script
 args = parser.parse_args()
+
 # Convert to uppercase
 args.seq = args.seq.upper()
 
@@ -25,43 +26,20 @@ if 'T' in args.seq and 'U' in args.seq:
     sys.exit(1)
 
 # Set up count variables
-Ucount = 0
-Tcount = 0
-Acount = 0
-Gcount = 0
-Ccount = 0
-
-# Check if the sequence contains non-DNA/RNA letters
-if any(letter not in 'ACGTU' for letter in args.seq):
-    print('ERROR: The sequence contains non-DNA/RNA letters.')
-    sys.exit(1)
+counts = {}
 
 sequence_length = len(args.seq)
 
 # Set up loop to check the letters and increase count per letter
 for letter in args.seq:
-    if letter == 'U':
-        Ucount += 1
-    elif letter == 'T':
-        Tcount += 1
-    elif letter == 'A':
-        Acount += 1
-    elif letter == 'G':
-        Gcount += 1
-    elif letter == 'C':
-        Ccount += 1
+	if letter in counts:
+		counts[letter] += 1
+	else:
+		counts[letter] = 1
 
-if Ucount > 0 and Tcount == 0:
-    print('The sequence is RNA')
-    print(f'%U: {(Ucount / sequence_length) * 100:.2f}%')
-    print(f'%G: {(Gcount / sequence_length) * 100:.2f}%')
-    print(f'%C: {(Ccount / sequence_length) * 100:.2f}%')
-    print(f'%A: {(Acount / sequence_length) * 100:.2f}%')
+# Print the type of sequence
+print('The sequence is DNA' if "T" in args.seq else 'The sequence is RNA' if "U" in args.seq else 'The sequence is DNA or RNA')
 
-elif Ucount == 0 and Tcount > 0:
-    print('The sequence is DNA')
-    print(f'%T: {(Tcount / sequence_length) * 100:.2f}%')
-    print(f'%G: {(Gcount / sequence_length) * 100:.2f}%')
-    print(f'%C: {(Ccount / sequence_length) * 100:.2f}%')
-    print(f'%A: {(Acount / sequence_length) * 100:.2f}%')
-
+# Print the counts of nucleotides
+for letter, count in counts.items():
+	print(f"%{letter}: {count / sequence_length * 100:.2f}%")
