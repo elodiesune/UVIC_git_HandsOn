@@ -31,11 +31,6 @@ Acount = 0
 Gcount = 0
 Ccount = 0
 
-# Check if the sequence contains non-DNA/RNA letters
-if any(letter not in 'ACGTU' for letter in args.seq):
-    print('ERROR: The sequence contains non-DNA/RNA letters.')
-    sys.exit(1)
-
 sequence_length = len(args.seq)
 
 # Set up loop to check the letters and increase count per letter
