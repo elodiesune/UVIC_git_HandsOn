@@ -43,3 +43,4 @@ print('The sequence is DNA' if "T" in args.seq else 'The sequence is RNA' if "U"
 # Print the counts of nucleotides
 for letter, count in counts.items():
 	print(f"%{letter}: {count / sequence_length * 100:.2f}%")
+#Dear Elo your code perfectly works
